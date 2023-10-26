@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/17af192e-cc3a-429e-a481-8bed70024510/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/anh-incap-app",
+    "appService.deploySubpath": "."
+}
