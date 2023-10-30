@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const fs = require('fs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,6 +22,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+var getJSfunction = (req, res) => {
+  var url = req.originalUrl.indexOf('?') > 0 ? req.originalUrl.split('?')[0] : req.originalUrl; 
+  var filePath = url.replace('/', '');   
+  console.log(req);
+  if (req.query.cachebuster) {
+      res.send({
+          token : "olloal", 
+          renewInSec : 10_077, 
+          cookieDomain : req.host
+      });
+  }
+  else {
+      console.log(__dirname);
+      var stat = fs.statSync(__dirname + "/public/javascripts/" + filePath);
+
+      res.writeHead(200, {
+          'Content-Type': 'text/javascript',
+          'Content-Length': stat.size,
+      });
+
+      var readStream = fs.createReadStream(__dirname + "/public/javascripts/" + filePath);      
+      readStream.pipe(res);
+  }    
+};
+
+app.get('/incapsulajs.js', getJSfunction);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
