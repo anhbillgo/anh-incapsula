@@ -4,16 +4,73 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="/incapsulajs.js" async defer></script>
+    <!--<script src="/incapsulajs.js" async defer></script>-->
+    <script type="text/javascript" src="/jspath.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to Hello Moto <%= hello %></p>
     <!--FYI: htta17@gmail.com Google Dev Console-->
-    <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LdFEEUUAAAAABQEWhQC0l3K9XFPcciWfOKbTi4o"></div>
-      <br/>
-      <input type="submit" value="Submit">
-    </form>
+    <!--
+    <iframe
+            id="main-iframe"
+            src="/_Incapsula_Resource?SWUDNSAI=31&amp;xinfo=14-12344734-0%20NNNN%20RT%281696542210847%20198%29%20q%280%200%20-1%201%29%20r%280%20-1%29%20B12%2814%2c0%2c0%29%20U6&amp;incident_id=1323000830009315865-63428193078154446&amp;edet=12&amp;cinfo=0e000000ce8f&amp;rpinfo=0&amp;cts=Scc3tC%2bJXGgIDhgN1BCHcYp2FqY99%2fh6VilI%2bkdBFkbwSAdTynNr%2bizPC2ENd9OV&amp;mth=POST"
+            frameborder="0"
+            width="100%"
+            height="100%"
+            marginheight="0px"
+            marginwidth="0px"
+        >
+        Request unsuccessful. Incapsula incident ID: 1323000830009315865-63428193078154446
+    </iframe>
+    -->
+    <script>
+      let model = [
+	{
+		"accountNumber": "7292708455",
+		"type": "SAP",
+		"nickName": "Not Available",
+		"futureBills": [],
+		"relatedPolicies": [
+			{
+				"policyNumber": "8000056772",
+				"displayPolicyNumber": "8000056772",
+				"policyLabel": "Life",
+				"policyStatus": "Active",
+				"termEffectiveDate": "",
+				"policyType": "IL"
+			}
+		],
+		"payPlan": {
+			"billingMethodType": "Recurring EFT",
+			"billingAccountNumber": "7292708455",
+			"suspended": false,
+			"effective": true,
+			"paymentMethod": {
+				"type": "EFT",
+				"payer": {
+					"firstName": "KISHA",
+					"lastName": "MATTOX",
+					"fullName": "KISHA  MATTOX",
+					"postalCode": "94602"
+				},
+				"bankName": "PROVIDENT CREDIT UNION",
+				"bankRoutingNumber": "321171731",
+				"bankAccountType": "Checking",
+				"bankAccountNumberMasked": "990"
+			}
+		},
+		"canChangeDueDate": false,
+		"thirdParty": false,
+		"makePaymentEligible": false,
+		"autoPayEligible": false,
+		"suspendingAutoPayEligible": false,
+		"cancelScheduledPaymentEligible": false,
+		"resiliencyResponse": false
+	}
+]; 
+      let x = JSPath.apply('.{.currentBill === null && .futureBill.length == 0}.payPlan', model);
+      console.log(x);
+    </script>
   </body>
 </html>

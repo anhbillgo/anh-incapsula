@@ -466,6 +466,7 @@
                                     }
                                 }
                                 var Br = window.btoa(wB.join(""));
+                                console.log(`${Br} <-- ${nu}`);
                                 Y4 = Br;
                             }
                             return Y4;

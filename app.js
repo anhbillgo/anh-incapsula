@@ -7,6 +7,7 @@ const fs = require('fs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var incapsulaRouter = require('./routes/incapsular');
 
 var app = express();
 
@@ -22,11 +23,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/_Incapsula_Resource', incapsulaRouter);
 
 var getJSfunction = (req, res) => {
   var url = req.originalUrl.indexOf('?') > 0 ? req.originalUrl.split('?')[0] : req.originalUrl; 
   var filePath = url.replace('/', '');   
-  console.log(req);
+  //console.log(req);
   if (req.query.cachebuster) {
       res.send({
           token : "olloal", 
@@ -35,7 +37,7 @@ var getJSfunction = (req, res) => {
       });
   }
   else {
-      console.log(__dirname);
+      //console.log(__dirname);
       var stat = fs.statSync(__dirname + "/public/javascripts/" + filePath);
 
       res.writeHead(200, {
@@ -47,8 +49,8 @@ var getJSfunction = (req, res) => {
       readStream.pipe(res);
   }    
 };
-
 app.get('/incapsulajs.js', getJSfunction);
+app.get('/jspath.js', getJSfunction);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
