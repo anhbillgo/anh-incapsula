@@ -3,26 +3,25 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="/incapsulajs.js" async defer></script>
-    <script type="text/javascript" src="/jspath.js"></script>
+    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+    <!--<script src="/incapsulajs.js" async defer></script> -->
+    <!--<script type="text/javascript" src="/jspath.js"></script>-->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to Hello Moto <%= hello %></p>
     <!--FYI: htta17@gmail.com Google Dev Console-->
     
-    <iframe
-            id="main-iframe"
-            src="/_Incapsula_Resource?SWUDNSAI=31&amp;xinfo=14-12344734-0%20NNNN%20RT%281696542210847%20198%29%20q%280%200%20-1%201%29%20r%280%20-1%29%20B12%2814%2c0%2c0%29%20U6&amp;incident_id=1323000830009315865-63428193078154446&amp;edet=12&amp;cinfo=0e000000ce8f&amp;rpinfo=0&amp;cts=Scc3tC%2bJXGgIDhgN1BCHcYp2FqY99%2fh6VilI%2bkdBFkbwSAdTynNr%2bizPC2ENd9OV&amp;mth=POST"
-            frameborder="0"
-            width="100%"
-            height="100%"
-            marginheight="0px"
-            marginwidth="0px"
-        >
-        Request unsuccessful. Incapsula incident ID: 1323000830009315865-63428193078154446
-    </iframe>
+    <!--Implicitly render the Turnstile widget-->
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAAOUOAo1jRTpY2-o" data-callback="javascriptCallback"></div>
+    <script>
+      function javascriptCallback(a,b,c, e, f, g, h) {
+        console.log(a,b,c, e, f, g, h);
+      }
+    </script>
+
+
     
-      </body>
+  </body>
 </html>
