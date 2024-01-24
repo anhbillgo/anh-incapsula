@@ -26,6 +26,7 @@
 
     <script>
       function onSubmit(token) {
+        console.log(token);
         document.getElementById("demo-form").submit();
       }      
     </script>
@@ -34,6 +35,11 @@
     data-sitekey="6LcZS1spAAAAALYvTvUAjqjIHqI3JPC0RWEewnuG" 
     data-callback='onSubmit' 
     data-action='submit'>Submit</button>
+
+    <form id="demo-form">
+
+      <button type="submit"></button>
+    </form>
 
 
 
