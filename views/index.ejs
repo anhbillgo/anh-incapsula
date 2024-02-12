@@ -7,6 +7,8 @@
     <!--<script src="/incapsulajs.js" async defer></script> -->
     <!--<script type="text/javascript" src="/jspath.js"></script>-->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   </head>
   <body>
     <h1><%= title %></h1>
@@ -41,6 +43,15 @@
       <button type="submit">This is the real submit</button>
     </form>
 
+    
+
+    <form action="" method="POST">
+      <input type="text" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
+      <div class="h-captcha" data-sitekey="e8be3f46-0198-494a-8501-dcd22a9f4f3d"></div>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
 
 
     
