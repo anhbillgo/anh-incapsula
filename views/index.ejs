@@ -6,9 +6,11 @@
     <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
     <!--<script src="/incapsulajs.js" async defer></script> -->
     <!--<script type="text/javascript" src="/jspath.js"></script>-->
+    <!--
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    -->
   </head>
   <body>
     <h1><%= title %></h1>
@@ -16,25 +18,27 @@
     <!--FYI: htta17@gmail.com Google Dev Console-->
     
     <!--Implicitly render the Turnstile widget-->
+    <!--
     <div class="cf-turnstile" data-sitekey="0x4AAAAAAAOUOAo1jRTpY2-o" data-callback="javascriptCallback"></div>
     <script>
       function javascriptCallback(a,b,c, e, f, g, h) {
         console.log(a,b,c, e, f, g, h);
       }
     </script>
+    -->
 
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
       function onSubmit(token) {
-        console.log(token);
+        console.log(`Token is: ${token}`);
         //document.getElementById("demo-form").submit();
       }      
     </script>
 
     <button class="g-recaptcha" 
-    data-sitekey="6LcZS1spAAAAALYvTvUAjqjIHqI3JPC0RWEewnuG" 
+    data-sitekey="6LdFEEUUAAAAABQEWhQC0l3K9XFPcciWfOKbTi4o" 
     data-callback='onSubmit' 
     data-action='submit'>Submit</button>
 
@@ -43,7 +47,7 @@
       <button type="submit">This is the real submit</button>
     </form>
 
-    
+    <!--
 
     <form action="" method="POST">
       <input type="text" name="email" placeholder="Email" />
@@ -52,6 +56,8 @@
       <br />
       <input type="submit" value="Submit" />
     </form>
+
+    -->
 
 
     
