@@ -11,6 +11,8 @@
 
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1><%= title %></h1>
@@ -58,7 +60,21 @@
     </form>
 
     -->
-    <button onclick="confirm('Are you sure?')">Pay button</button>
+    <button id="paymentbutton" >Pay button</button>
+
+    <script>
+      $(function(){
+        
+        $("#paymentbutton").click(() => {
+
+          console.log(confirm("Are you sure?"))
+
+        });
+
+      }); 
+    </script>
+
+
 
     
   </body>
