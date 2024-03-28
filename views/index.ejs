@@ -67,11 +67,21 @@
         
         $("#paymentbutton").click(() => {
 
-          console.log(confirm("Are you sure?"))
+          var x = confirm("Are you sure?"); 
+
+          alert(x); 
 
         });
 
+        setTimeout(function() {
+
+          alert("Need to close");
+
+        }, 10_000); 
+
       }); 
+
+
     </script>
 
 
